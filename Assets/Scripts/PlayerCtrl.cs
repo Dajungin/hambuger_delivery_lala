@@ -3,8 +3,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using System.Diagnostics;
 using System.Windows;
+
 public class PlayerCtrl : MonoBehaviour
 {
     public Transform Cloud;
@@ -12,7 +12,7 @@ public class PlayerCtrl : MonoBehaviour
     public Transform EndPos;
 
     Transform spPoint;
-    Transform newTile;
+    //Transform newTile; //여기에 무언가를 넣어줘야 한다.
     float maxy = 0;
 
     int speedSide = 10; //좌우 이동 속도
@@ -115,32 +115,8 @@ public class PlayerCtrl : MonoBehaviour
             }
 
         }
-        void mCamera()
-        {
-            //Player 최대 높이 구하기
-            if(transform.position.y>maxy)
-            {
-                maxy = transform.position.y;
 
-                //카메라 위치 이동
-                Camera.main.transform.position = new Vector3(0, maxy - 2.5f, -10);
-                //score=(int)maxy*1000;.
-            }
-            //가장 최근의 Tile과 spPoint와의 거리 구하기
-            if(spPoint.position.y-newTile.position.y >=4)
-            {
-                //나뭇가지의 회전방향 설정
-                int mx = (Random.Range(0, 2) == 0) ? -1 : -1;
-                int my = (Random.Range(0, 2) == 0) ? -1 : -1;
-                newTile.GetComponent<SpriteRenderer>().material.mainTextureScale = new Vector2(mx, my);
-                
-                float x = Random.Range(-10f, 10f) * 0.5f;
-                Vector3 pos = new Vector3(x, spPoint.position.y, 0.3f);
-                newTile.GetComponent<SpriteRenderer>().material.mainTextureScale = new Vector2(mx, my);
-
-               
-            }
-        }
+       
         //게임 오버 설정
         void GameOver()
         {
@@ -152,6 +128,32 @@ public class PlayerCtrl : MonoBehaviour
     public void RetryGame()
     {
         Application.LoadLevel("Test2");
+    }
+    void mCamera()
+    {
+        //Player 최대 높이 구하기
+        if (transform.position.y > maxy)
+        {
+            maxy = transform.position.y;
+
+            //카메라 위치 이동
+            Camera.main.transform.position = new Vector3(0, maxy - 2.5f, -10);
+            //score=(int)maxy*1000;.
+        }
+        //가장 최근의 Tile과 spPoint와의 거리 구하기
+       // if (spPoint.position.y - newTile.position.y >= 4)
+       // {
+       //     //나뭇가지의 회전방향 설정
+       //     int mx = (Random.Range(0, 2) == 0) ? -1 : -1;
+       //     int my = (Random.Range(0, 2) == 0) ? -1 : -1;
+       //     newTile.GetComponent<SpriteRenderer>().material.mainTextureScale = new Vector2(mx, my);
+       //
+       //     float x = Random.Range(-10f, 10f) * 0.5f;
+       //     Vector3 pos = new Vector3(x, spPoint.position.y, 0.3f);
+       //     newTile.GetComponent<SpriteRenderer>().material.mainTextureScale = new Vector2(mx, my);
+       //
+       //
+       // }
     }
 }
 
