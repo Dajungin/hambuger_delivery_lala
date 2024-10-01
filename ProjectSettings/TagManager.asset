@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - Cloude
+  - Cloud
   layers:
   - Default
   - TransparentFX
@@ -13,8 +14,8 @@ TagManager:
   - Water
   - UI
   - Player
-  - Cloude
-  - 
+  - Cloud
+  - Background
   - 
   - 
   - 
@@ -41,4 +42,10 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: tile
+    uniqueID: 2283392165
+    locked: 0
+  - name: player
+    uniqueID: 3433982909
     locked: 0
