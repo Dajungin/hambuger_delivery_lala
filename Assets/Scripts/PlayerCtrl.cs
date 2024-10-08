@@ -24,7 +24,13 @@ public class PlayerCtrl : MonoBehaviour
     bool isDead = false;
     Animator anim;
     public Button retryGame;
-  
+
+    public float moveSpeed = 5f;//마우스에 따라 움직이는 속도
+    private float targetXPosition; // 마우스 따라가기 위해 변수
+
+    private Camera mainCamera; //카메라 변수
+    private float screenWidth; //화면 X크기
+
     void Start()
     {
         anim=GetComponent<Animator>();
@@ -37,6 +43,10 @@ public class PlayerCtrl : MonoBehaviour
 
         //Cursor.visible=false; //커서 감추기
         retryGame.gameObject.SetActive(false);
+
+        targetXPosition = transform.position.x; // 타겟 
+        mainCamera = Camera.main; //메인 카메라 변수 저장
+        screenWidth = mainCamera.aspect * mainCamera.orthographicSize;
     }
 
     //게임 루프 
@@ -48,7 +58,20 @@ public class PlayerCtrl : MonoBehaviour
         mCamera(); //카메라 이동
         JumpPlayer(); //플레이어 점프
         MovePlayer(); //플레이어 이동
-       
+
+        if (Input.GetMouseButton(0))
+        {
+            Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            targetXPosition = mousePosition.x;
+        }
+
+        // 플레이어가 목표 X 위치로 부드럽게 이동
+        float newX = Mathf.Lerp(transform.position.x, targetXPosition, moveSpeed * Time.deltaTime);
+        transform.position = new Vector3(newX, transform.position.y, transform.position.z);
+
+        // 화면의 경계 값 내로 제한
+        newX = Mathf.Clamp(newX, -screenWidth, screenWidth);
+        transform.position = new Vector3(newX, transform.position.y, transform.position.z);
     }
 
     //플레이어 점프 

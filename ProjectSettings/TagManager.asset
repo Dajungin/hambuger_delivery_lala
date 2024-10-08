@@ -4,12 +4,9 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - Cloude
   - Cloud
+  - Enemy
   - glass
-  - Hambuger
-  - Hamburge
-  - Hamburger
   layers:
   - Default
   - TransparentFX

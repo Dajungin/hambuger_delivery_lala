@@ -8,13 +8,12 @@ public class PlayerController : MonoBehaviour
     Collider2D playerCollider;
     float moveX;
 
-    [SerializeField][Range(100f, 800f)] float moveSpeed =400f;
-    [SerializeField][Range(100f, 800f)] float jumpFoce = 400f;
+    [SerializeField][Range(100f, 800f)] float moveSpeed =400f; //움직이는 속도
+    [SerializeField][Range(100f, 800f)] float jumpFoce = 400f; //점프 높이
 
     int playerLayer, CloudLayer;
 
 
-    private bool isAttachedToGlass = false;
     private Transform originalParent;
 
     void Start()
@@ -38,7 +37,7 @@ public class PlayerController : MonoBehaviour
         // }
         // else
         //     Physics2D.IgnoreLayerCollision(playerLayer, CloudLayer, false);
-        LaunchHamburgers();
+       
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -52,38 +51,19 @@ public class PlayerController : MonoBehaviour
             // 플레이어의 충돌 박스 비활성화
             playerCollider.enabled = false;
 
-            // 일정 시간 후 충돌 박스 다시 활성화 (0.5초 뒤)
-            Invoke("EnablePlayerCollider", 0.5f);
+            // 일정 시간 후 충돌 박스 다시 활성화 (0.8초 뒤)
+            Invoke("EnablePlayerCollider", 0.8f);
         }
 
-        if (collision.gameObject.CompareTag("glass"))
+        if(collision.gameObject.CompareTag("Enemy"))
         {
-            // 플레이어와 glass가 붙어 있게 만듦
-            if (!isAttachedToGlass)
-            {
-                originalParent = transform.parent;
-                transform.parent = collision.transform;
-                isAttachedToGlass = true;
-            }
+            collision.gameObject.SetActive(false);
         }
+
+        
     }
     void EnablePlayerCollider()
     {
         playerCollider.enabled = true;
-    }
-
-
-    void LaunchHamburgers()
-    {
-        GameObject[] Hamburgers = GameObject.FindGameObjectsWithTag("Hamburger");
-
-        foreach (GameObject hamburger in Hamburgers)
-        {
-            Rigidbody2D hbRb = hamburger.GetComponent<Rigidbody2D>();
-            if (hbRb != null)
-            {
-                hbRb.AddForce(Vector2.up * 10.0f, ForceMode2D.Impulse);
-            }
-        }
     }
 }
