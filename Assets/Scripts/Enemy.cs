@@ -5,7 +5,7 @@ using UnityEngine;
 public class Enemy : MonoBehaviour
 {
     public float speed; //속도 변수
-    private Life gameDirector;
+   
 
     public void OnCollisionEnter2D(Collision2D collision)
     {
@@ -14,7 +14,6 @@ public class Enemy : MonoBehaviour
            
             Destroy(this.gameObject); //부딪힐 시 사라지게 하는 코드 
             //Destroy(collision.gameObject);
-            this.gameDirector.AddScore(1);
             
         }
       
@@ -27,7 +26,7 @@ public class Enemy : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        this.gameDirector=GameObject.Find("lifes").GetComponent<Life>();
+        
     }
 
     

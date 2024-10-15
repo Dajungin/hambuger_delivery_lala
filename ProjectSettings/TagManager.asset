@@ -7,6 +7,7 @@ TagManager:
   - Cloud
   - Enemy
   - glass
+  - Hamburger
   layers:
   - Default
   - TransparentFX
@@ -17,8 +18,8 @@ TagManager:
   - Player
   - Cloud
   - Background
-  - 
-  - 
+  - Hamburger
+  - glass
   - 
   - 
   - 

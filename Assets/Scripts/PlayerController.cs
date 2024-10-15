@@ -7,8 +7,11 @@ public class PlayerController : MonoBehaviour
     Rigidbody2D rb;
     Collider2D playerCollider;
     float moveX;
+    bool Jump = false; //애니메이션 bool 확인
+    Animator anim; //애니메이션 변수
 
-    [SerializeField][Range(100f, 800f)] float moveSpeed =400f; //움직이는 속도
+
+    [SerializeField][Range(100f, 800f)] float moveSpeed = 400f; //움직이는 속도
     [SerializeField][Range(100f, 800f)] float jumpFoce = 400f; //점프 높이
 
     int playerLayer, CloudLayer;
@@ -18,7 +21,10 @@ public class PlayerController : MonoBehaviour
 
     void Start()
     {
-        rb=GetComponent<Rigidbody2D>();
+        anim = GetComponent<Animator>(); //애니메이션 
+        rb = GetComponent<Rigidbody2D>();
+        anim.SetBool("isJumping", false); //초기 상태 설정 
+
         playerCollider = GetComponent<BoxCollider2D>();
 
         playerLayer = LayerMask.NameToLayer("Player");
@@ -29,25 +35,18 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         moveX = Input.GetAxisRaw("Horizontal") * moveSpeed * Time.deltaTime;
-        // rb.velocity = new Vector3(moveX, rb.velocity.y);
-        //
-        // if(rb.velocity.y > 0)
-        // {
-        //     Physics2D.IgnoreLayerCollision(playerLayer, CloudLayer, true);
-        // }
-        // else
-        //     Physics2D.IgnoreLayerCollision(playerLayer, CloudLayer, false);
-       
+
+    
+
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Cloud"))
         {
-            Debug.Log("addada");
-
+            
             rb.AddForce(Vector2.up * jumpFoce, ForceMode2D.Force);
-
+            anim.SetBool("isJumping", true);//애니메이션 점프 체크
             // 플레이어의 충돌 박스 비활성화
             playerCollider.enabled = false;
 
@@ -55,13 +54,14 @@ public class PlayerController : MonoBehaviour
             Invoke("EnablePlayerCollider", 0.8f);
         }
 
-        if(collision.gameObject.CompareTag("Enemy"))
+        if (collision.gameObject.CompareTag("Enemy"))
         {
             collision.gameObject.SetActive(false);
         }
 
-        
     }
+
+    
     void EnablePlayerCollider()
     {
         playerCollider.enabled = true;
