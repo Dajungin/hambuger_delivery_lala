@@ -777,6 +777,7 @@ GameObject:
   - component: {fileID: 754003698}
   - component: {fileID: 754003699}
   - component: {fileID: 754003700}
+  - component: {fileID: 754003701}
   m_Layer: 6
   m_Name: Player
   m_TagString: Player
@@ -1005,6 +1006,18 @@ MonoBehaviour:
   - {fileID: 1426153421}
   life: 6
   Maxlife: 6
+--- !u!114 &754003701
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 754003691}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 60c4e4b8bb28bef46a092fe8f15f2420, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &901531376
 GameObject:
   m_ObjectHideFlags: 0
@@ -1453,6 +1466,56 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &1120105798
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1120105800}
+  - component: {fileID: 1120105799}
+  m_Layer: 0
+  m_Name: SpawnItem
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1120105799
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1120105798}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7217857f30efd6e41a0ca9cdba913c10, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Items:
+  - {fileID: 174574773609013655, guid: 8a7260f8033da0244ae8449e019c79e5, type: 3}
+  minX: -4
+  maxX: 4
+  minYInterval: 14
+  maxYInterval: 28
+--- !u!4 &1120105800
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1120105798}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1210018520
 GameObject:
   m_ObjectHideFlags: 0
@@ -2613,3 +2676,4 @@ SceneRoots:
   - {fileID: 2892428760009776710}
   - {fileID: 2104089281}
   - {fileID: 426910111}
+  - {fileID: 1120105800}

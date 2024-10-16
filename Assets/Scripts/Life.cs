@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class Life : MonoBehaviour
+public class Life : MonoBehaviour 
 {
     public GameObject[] Hamburgers; 
     public int life; //현재 목숨
@@ -15,8 +15,14 @@ public class Life : MonoBehaviour
         {
             life--;
         }
+        if (collision.gameObject.CompareTag("Heal")) //Heal 태그를 가진 물체
+        {
+            life++;
+            Destroy(collision.gameObject);
+        }
 
     }
+
 
     // Start is called before the first frame update
     void Start()
@@ -52,40 +58,38 @@ public class Life : MonoBehaviour
         switch (life)
         {
             case 6:
-                //SetLifeVisibility(6);
-                //Hamburgers[0].SetActive(false);
+                Hamburgers[0].SetActive(true);
                 break;
             case 5:
-                //SetLifeVisibility(5);
+                
                 Hamburgers[0].SetActive(false);
+                Hamburgers[1].SetActive(true);
                 break;
             case 4:
-               // SetLifeVisibility(4);
+               
                 Hamburgers[1].SetActive(false);
+                Hamburgers[2].SetActive(true);
                 break;
             case 3:
-                //SetLifeVisibility(3);
+                
                 Hamburgers[2].SetActive(false);
+                Hamburgers[3].SetActive(true);
                 break;
             case 2:
                 Hamburgers[3].SetActive(false);
-                //SetLifeVisibility(2);
+                Hamburgers[4].SetActive(true);
+
                 break;
             case 1:
-                //SetLifeVisibility(1);
+                
                 Hamburgers[4].SetActive(false);
+                Hamburgers[5].SetActive(true);
                 break;
             case 0:
                 Hamburgers[5].SetActive(false);
-                //SetLifeVisibility(0);
+                
                 break;
         }
     }
-  //void SetLifeVisibility(int activeLives)
-  //{
-  //    for (int i = 0; i < Hamburgers.Length; i++)
-  //    {
-  //        Hamburgers[i].SetActive(false);
-  //    }
-  //}
+  
 }
