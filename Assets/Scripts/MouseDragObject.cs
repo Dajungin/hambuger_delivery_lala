@@ -5,46 +5,29 @@ using UnityEngine;
 
 
 public class MouseDragObject : MonoBehaviour
+{ 
+public float speed = 10f; // 플레이어 이동 속도
 
-{
-    private Vector3 mOffset;
-    private float mZCoord;
-
-
-    void OnMouseDown()
-
+    void Update()
     {
-        mZCoord = Camera.main.WorldToScreenPoint(gameObject.transform.position).z;
+        // 화면에 터치가 하나 이상 있을 때만 실행
+        if (Input.touchCount > 0)
+        {
+            // 첫 번째 터치를 가져옴 (인덱스 0)
+            Touch touch = Input.GetTouch(0);
 
-        // Store offset = gameobject world pos - mouse world pos
-        mOffset = gameObject.transform.position - GetMouseAsWorldPoint();
+            // 터치가 움직이거나 유지되고 있을 때만 실행
+            if (touch.phase == TouchPhase.Moved || touch.phase == TouchPhase.Stationary)
+            {
+                // 터치 위치를 화면 좌표에서 월드 좌표로 변환
+                Vector3 touchPosition = Camera.main.ScreenToWorldPoint(touch.position);
+
+                // X축 좌표는 터치 위치로, Y축은 현재 위치를 유지
+                Vector3 newPosition = new Vector3(touchPosition.x, transform.position.y, transform.position.z);
+
+                // 선형 보간을 사용해 부드럽게 캐릭터를 이동 (선택 사항)
+                transform.position = Vector3.Lerp(transform.position, newPosition, speed * Time.deltaTime);
+            }
+        }
     }
-
-
-
-    private Vector3 GetMouseAsWorldPoint()
-
-    {
-        // Pixel coordinates of mouse (x,y)
-        Vector3 mousePoint = Input.mousePosition;
-
-        // z coordinate of game object on screen
-        mousePoint.z = mZCoord;
-
-
-        // Convert it to world points
-        return Camera.main.ScreenToWorldPoint(mousePoint);
-    }
-
-
-    void OnMouseDrag()
-
-    {
-        Vector3 objectPos = GetMouseAsWorldPoint() + mOffset;
-        objectPos.y = 0.1f;
-        transform.position = objectPos;
-    }
-
-
-    //마우스로 해도 모바일에선 터치로 작동되나? 왜 되지
 }
