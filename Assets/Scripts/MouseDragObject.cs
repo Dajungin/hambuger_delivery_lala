@@ -20,13 +20,13 @@ public float speed = 10f; // 플레이어 이동 속도
             if (touch.phase == TouchPhase.Moved || touch.phase == TouchPhase.Stationary)
             {
                 // 터치 위치를 화면 좌표에서 월드 좌표로 변환
-                Vector3 touchPosition = Camera.main.ScreenToWorldPoint(touch.position);
+                Vector2 touchPosition = Camera.main.ScreenToWorldPoint(touch.position);
 
                 // X축 좌표는 터치 위치로, Y축은 현재 위치를 유지
-                Vector3 newPosition = new Vector3(touchPosition.x, transform.position.y, transform.position.z);
+                Vector2 newPosition = new Vector2(touchPosition.x, transform.position.y);
 
                 // 선형 보간을 사용해 부드럽게 캐릭터를 이동 (선택 사항)
-                transform.position = Vector3.Lerp(transform.position, newPosition, speed * Time.deltaTime);
+                transform.position = Vector2.Lerp(transform.position, newPosition, speed * Time.deltaTime);
             }
         }
     }
