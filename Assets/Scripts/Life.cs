@@ -41,6 +41,11 @@ public class Life : MonoBehaviour
         {
             life++;
             UpdateLivesDisplay();
+
+            if(life>Maxlife)
+            {
+                life--;
+            }
         }
     }
 

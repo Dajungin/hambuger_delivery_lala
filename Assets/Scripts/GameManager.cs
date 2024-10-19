@@ -9,7 +9,10 @@ using UnityEngine.UI;
 public class GameManager : MonoBehaviour
 {
     public SpawnManager spawnManager; //적군 스폰 프리팹 넣는 곳
+    public ItemManager itemManager;
+    public CloudCtrl cloudCtrl;
     public GameObject Cover; //Cover 드래그 할 수 있음
+
 
   
     // Start is called before the first frame update
