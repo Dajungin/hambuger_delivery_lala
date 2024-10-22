@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 
@@ -25,6 +26,13 @@ public class GameManager : MonoBehaviour
     {
         Cover.SetActive(false);
         
+    }
+
+    public void OnClickRestart()
+    {
+        //첫 장면을 가져오게 된다.
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        Cover.SetActive(false);
     }
 
 

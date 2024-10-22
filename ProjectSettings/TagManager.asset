@@ -9,6 +9,8 @@ TagManager:
   - glass
   - Hamburger
   - Heal
+  - GameOver
+  - End
   layers:
   - Default
   - TransparentFX
@@ -23,8 +25,8 @@ TagManager:
   - glass
   - Item
   - Enemy
-  - 
-  - 
+  - GameOver
+  - End
   - 
   - 
   - 
