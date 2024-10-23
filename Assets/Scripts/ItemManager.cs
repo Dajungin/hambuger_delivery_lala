@@ -18,11 +18,11 @@ public class ItemManager : MonoBehaviour
         // 메인 카메라 참조
         mainCamera = Camera.main;
 
-        // 처음 몬스터를 스폰하는 루틴 실행
+        // 처음 스폰하는 루틴 실행
         StartCoroutine(SpawnItem());
     }
 
-    public void SpawnItem(GameObject prefab, Vector3 position) // 적의 스폰 위치 설정 함수
+    public void SpawnItem(GameObject prefab, Vector3 position) // 스폰 위치 설정 함수
     {
         GameObject Heal = Instantiate(prefab);
         Heal.transform.position = position;
@@ -50,7 +50,7 @@ public class ItemManager : MonoBehaviour
             lastSpawnY = spawnY;
 
             // 몬스터 생성 후 1초 대기
-            yield return new WaitForSeconds(2.8f);
+            yield return new WaitForSeconds(2.0f);
         }
     }
     void CleanupOffScreenObjects()
@@ -60,7 +60,7 @@ public class ItemManager : MonoBehaviour
         GameObject[] allitem = GameObject.FindGameObjectsWithTag("Heal"); // 태그가 Monster인 오브젝트들
         foreach (GameObject Heal in allitem)
         {
-            if (Heal.transform.position.x < mainCamera.transform.position.x - 5)
+            if (Heal.transform.position.y < mainCamera.transform.position.y - 5)
             {
                 Destroy(Heal);
             }

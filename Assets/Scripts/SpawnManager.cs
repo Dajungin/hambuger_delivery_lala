@@ -50,7 +50,7 @@ public class SpawnManager : MonoBehaviour
             lastSpawnY = spawnY;
 
             // 몬스터 생성 후 1초 대기
-            yield return new WaitForSeconds(2.8f);
+            yield return new WaitForSeconds(2.5f);
         }
     }
     void CleanupOffScreenObjects()
@@ -60,7 +60,7 @@ public class SpawnManager : MonoBehaviour
         GameObject[] allMonsters = GameObject.FindGameObjectsWithTag("Monster"); // 태그가 Monster인 오브젝트들
         foreach (GameObject monster in allMonsters)
         {
-            if (monster.transform.position.x < mainCamera.transform.position.x - 5)
+            if (monster.transform.position.y < mainCamera.transform.position.y - 5)
             {
                 Destroy(monster);
             }

@@ -14,8 +14,11 @@ public class GameManager : MonoBehaviour
     public CloudCtrl cloudCtrl;
     public GameObject Cover; //Cover 드래그 할 수 있음
 
+    private void Awake()
+    {
+        Application.targetFrameRate = 60;
+    }
 
-  
     // Start is called before the first frame update
     void Start()
     {
@@ -33,6 +36,7 @@ public class GameManager : MonoBehaviour
         //첫 장면을 가져오게 된다.
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         Cover.SetActive(false);
+        Time.timeScale = 1;
     }
 
 

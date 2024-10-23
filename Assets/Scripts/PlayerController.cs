@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
@@ -29,6 +30,20 @@ public class PlayerController : MonoBehaviour
 
         playerLayer = LayerMask.NameToLayer("Player");
         CloudLayer = LayerMask.NameToLayer("Cloud");
+
+        //StartCoroutine(SetGravitiy());
+    }
+
+    IEnumerator SetGravitiy()
+    {
+        yield return new WaitForSeconds(2f);
+
+        rb.gravityScale = 1f;
+    }
+
+    public void SetInitPlayerGravity()
+    {
+        rb.gravityScale = 0f;
     }
 
     // Update is called once per frame
@@ -36,16 +51,36 @@ public class PlayerController : MonoBehaviour
     {
         moveX = Input.GetAxisRaw("Horizontal") * moveSpeed * Time.deltaTime;
 
-    
-
+        //Vector2 mouseWorldPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        if (Input.GetMouseButtonDown(0))
+        {
+            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            RaycastHit2D hit = Physics2D.Raycast(ray.origin, ray.direction, Mathf.Infinity);
+            if (hit)
+            {
+                switch(hit.collider.gameObject.name)
+                {
+                    case "glass":
+                        {
+                            rb.gravityScale = 1f;
+                        }
+                        break;
+                }
+                //Debug.Log(hit.collider.gameObject.name);
+            }
+        }
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Cloud"))
         {
+            rb.velocity = Vector2.zero;
+            
             
             rb.AddForce(Vector2.up * jumpFoce, ForceMode2D.Force);
+            
+            
             anim.SetBool("isJumping", true);//애니메이션 점프 체크
             // 플레이어의 충돌 박스 비활성화
             playerCollider.enabled = false;

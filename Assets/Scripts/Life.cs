@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI; // UI 기능을 위한 네임스페이스
-using UnityEngine.SceneManagement;
+//using UnityEngine.SceneManagement;
 
 public class Life : MonoBehaviour
 {
@@ -11,28 +11,17 @@ public class Life : MonoBehaviour
     public int life; // 현재 목숨
     public int Maxlife = 6; // 최대 목숨
     public GameObject gameOverPanel; // 게임 오버 UI 패널
-    public GameObject EndPanel; //게임 목표 지점
-
-    public Button restartButton; // 다시 시작 버튼
+    public GameObject gameEndPanel; // 게임  UI 패널
 
     void Start()
     {
         life = Maxlife; // 처음은 최대 목숨으로 시작
         UpdateLivesDisplay(); // 모든 목숨 오브젝트를 활성화
-        gameOverPanel.SetActive(false); // 처음에는 게임 오버 이미지를 비활성화
-        EndPanel.SetActive(false); // 처음에는 엔딩 이미지를 비활성화
-
-
-        // 다시 시작 버튼에 클릭 이벤트 등록
-        restartButton.onClick.AddListener(RestartGame);
+        gameOverPanel.SetActive(false);
+        gameEndPanel.SetActive(false);
     }
 
-    // 다시 시작 버튼을 눌렀을 때 호출되는 함수
-    public void RestartGame()
-    {
-        // 현재 활성화된 씬을 다시 로드하여 게임을 재시작
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-    }
+    
 
     void OnCollisionEnter2D(Collision2D collision)
     {
@@ -58,7 +47,10 @@ public class Life : MonoBehaviour
         {
            
             UpdateLivesDisplay();
-            TriggerGameOver(); // 게임 오버 호출 //엔딩이 나오게 해야하는 데 안 나옴 
+            TriggerGameEnd(); // 게임 오버 호출 //엔딩이 나오게 해야하는 데 안 나옴 
+
+            //임시
+            GameObject.FindObjectOfType<PlayerController>().SetInitPlayerGravity();
         }
     }
 
@@ -76,6 +68,21 @@ public class Life : MonoBehaviour
         }
     }
 
+    void TriggerGameOver()
+    {
+        // 게임 오버 이미지(UI 패널) 활성화
+        gameOverPanel.SetActive(true);
+        Time.timeScale = 0; // 게임을 일시 정지
+    }
+
+    void TriggerGameEnd()
+    {
+        // 게임 오버 이미지(UI 패널) 활성화
+        gameEndPanel.SetActive(true);
+        Time.timeScale = 0; // 게임을 일시 정지
+    }
+
+
     void UpdateLivesDisplay()
     {
         for (int i = 0; i < Hamburgers.Length; i++)
@@ -87,23 +94,16 @@ public class Life : MonoBehaviour
         // 목숨이 0일 때 게임 오버 호출
         if (life <= 0)
         {
-            TriggerGameOver();
+            TriggerGameEnd();
         }
     }
 
-    void TriggerGameOver()
+    public void Restart_Btu()
     {
-        // 게임 오버 이미지(UI 패널) 활성화
-        gameOverPanel.SetActive(true);
-        Time.timeScale = 0; // 게임을 일시 정지
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
-    void TriggerGameEnd()
-    {
-        
-        EndPanel.SetActive(true);
-        Time.timeScale = 0; // 게임을 일시 정지
-    }
+   
 
     void Update()
     {
