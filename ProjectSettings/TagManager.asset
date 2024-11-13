@@ -1,0 +1,65 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!78 &1
+TagManager:
+  serializedVersion: 2
+  tags:
+  - Enemy
+  - Cloud
+  - Heal
+  - Hamburger
+  - glass
+  - GameOver
+  - End
+  layers:
+  - Default
+  - TransparentFX
+  - Ignore Raycast
+  - 
+  - Water
+  - UI
+  - Player
+  - Cloud
+  - Enemy
+  - glass
+  - item
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  m_SortingLayers:
+  - name: Default
+    uniqueID: 0
+    locked: 0
+  - name: UI
+    uniqueID: 869053541
+    locked: 0
+  - name: Player
+    uniqueID: 114753905
+    locked: 0
+  - name: ITEM
+    uniqueID: 4091869787
+    locked: 0
+  - name: Canvas
+    uniqueID: 2015791377
+    locked: 0
+  - name: Enemy
+    uniqueID: 2630274495
+    locked: 0
