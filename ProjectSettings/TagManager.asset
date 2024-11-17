@@ -57,9 +57,9 @@ TagManager:
   - name: ITEM
     uniqueID: 4091869787
     locked: 0
-  - name: Canvas
-    uniqueID: 2015791377
-    locked: 0
   - name: Enemy
     uniqueID: 2630274495
+    locked: 0
+  - name: Canvas
+    uniqueID: 1572516391
     locked: 0

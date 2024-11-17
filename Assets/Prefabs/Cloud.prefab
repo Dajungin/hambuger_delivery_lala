@@ -11,6 +11,8 @@ GameObject:
   - component: {fileID: 5107304693511819195}
   - component: {fileID: 3287264843287467196}
   - component: {fileID: -7934871755506242670}
+  - component: {fileID: 7070407427777341576}
+  - component: {fileID: 4404149349799584869}
   m_Layer: 7
   m_Name: Cloud
   m_TagString: Cloud
@@ -130,3 +132,36 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 2.8, y: 0.5}
   m_EdgeRadius: 0
+--- !u!95 &7070407427777341576
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4118146142170104568}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: fb24a3420a0eb754c97c36d48d4c0cfb, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &4404149349799584869
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4118146142170104568}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 81cef8a5d685b384a863611bcb1219d6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

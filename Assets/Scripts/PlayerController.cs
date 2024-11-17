@@ -9,7 +9,7 @@ public class PlayerController : MonoBehaviour
     Collider2D playerCollider;
     Collider2D CloundCollider;
     float moveX;
-    bool Jump = false; //애니메이션 bool 확인
+    //bool Jump = false; //애니메이션 bool 확인
     Animator anim; //애니메이션 변수
 
 
@@ -84,7 +84,7 @@ public class PlayerController : MonoBehaviour
             rb.AddForce(Vector2.up * jumpFoce, ForceMode2D.Force);
             
             
-            anim.SetBool("isJumping", true);//애니메이션 점프 체크
+            //anim.SetBool("isJumping", true);//애니메이션 점프 체크
             // 구름의 충돌 박스 비활성화
             CloundCollider.enabled = false;
 

@@ -632,7 +632,7 @@ GameObject:
   - component: {fileID: 279042439}
   - component: {fileID: 279042440}
   m_Layer: 0
-  m_Name: life1_2
+  m_Name: life6_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1245,7 +1245,7 @@ GameObject:
   - component: {fileID: 444822638}
   - component: {fileID: 444822639}
   m_Layer: 0
-  m_Name: life2_2
+  m_Name: life5_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1329,7 +1329,7 @@ GameObject:
   - component: {fileID: 609724328}
   - component: {fileID: 609724329}
   m_Layer: 0
-  m_Name: life4_2
+  m_Name: life3_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2243,8 +2243,8 @@ Canvas:
   m_VertexColorAlwaysGammaSpace: 1
   m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
-  m_SortingLayerID: 2015791377
-  m_SortingOrder: 2
+  m_SortingLayerID: 1572516391
+  m_SortingOrder: 5
   m_TargetDisplay: 0
 --- !u!224 &1029809763
 RectTransform:
@@ -2425,7 +2425,7 @@ GameObject:
   - component: {fileID: 1107632596}
   - component: {fileID: 1107632597}
   m_Layer: 0
-  m_Name: life6_2
+  m_Name: life1_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3523,7 +3523,7 @@ GameObject:
   - component: {fileID: 1709043390}
   - component: {fileID: 1709043391}
   m_Layer: 0
-  m_Name: life5_2
+  m_Name: life2_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3795,7 +3795,7 @@ GameObject:
   - component: {fileID: 1910753340}
   - component: {fileID: 1910753341}
   m_Layer: 0
-  m_Name: life3_2
+  m_Name: life4_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4028,9 +4028,9 @@ GameObject:
   - component: {fileID: 1964434067}
   - component: {fileID: 1964434065}
   - component: {fileID: 1964434064}
-  - component: {fileID: 1964434063}
   - component: {fileID: 1964434062}
   - component: {fileID: 1964434061}
+  - component: {fileID: 1964434070}
   m_Layer: 6
   m_Name: Player
   m_TagString: Player
@@ -4076,37 +4076,16 @@ MonoBehaviour:
   - {fileID: 1587881860}
   - {fileID: 1572419754}
   - {fileID: 1131557486}
-  - {fileID: 279042438}
-  - {fileID: 444822637}
-  - {fileID: 1910753339}
-  - {fileID: 609724327}
-  - {fileID: 1709043389}
   - {fileID: 1107632595}
+  - {fileID: 1709043389}
+  - {fileID: 609724327}
+  - {fileID: 1910753339}
+  - {fileID: 444822637}
+  - {fileID: 279042438}
   life: 6
   Maxlife: 6
   gameOverPanel: {fileID: 1489849263}
   gameEndPanel: {fileID: 1686583352}
---- !u!95 &1964434063
-Animator:
-  serializedVersion: 5
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1964434060}
-  m_Enabled: 0
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: b93c858b3e467aa4fac505be40f7fb06, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 1
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
 --- !u!61 &1964434064
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -4269,6 +4248,27 @@ Transform:
   - {fileID: 237167081}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &1964434070
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1964434060}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: c9fbea46a56428c41bffab8047d1ec33, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &2011700979
 GameObject:
   m_ObjectHideFlags: 0

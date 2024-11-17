@@ -128,66 +128,73 @@ public class Life : MonoBehaviour
         {
             case 6:
                 Hamburgers[0].SetActive(true);
-                Hamburgers[12].SetActive(false);
+                //ÀÌ ¹ØºÎÅÍ´Â º° ¸ñ¼û ¸®¼Ò½º
+                Hamburgers[17].SetActive(false);
                 Hamburgers[11].SetActive(true);
-                
+
                 break;
             case 5:
-
                 Hamburgers[0].SetActive(false);
                 Hamburgers[1].SetActive(true);
+                //ÀÌ ¹ØºÎÅÍ´Â º° ¸ñ¼û ¸®¼Ò½º
                 Hamburgers[11].SetActive(false);
+                Hamburgers[17].SetActive(true);
+                //¸ñ¼û + µÇ¾úÀ» ½Ã º° ¸®¼Ò½º
+                Hamburgers[16].SetActive(false);
                 Hamburgers[10].SetActive(true);
-                Hamburgers[13].SetActive(false);
-                Hamburgers[12].SetActive(true);
-                
 
                 break;
             case 4:
 
                 Hamburgers[1].SetActive(false);
                 Hamburgers[2].SetActive(true);
+                //ÀÌ ¹ØºÎÅÍ´Â º° ¸ñ¼û ¸®¼Ò½º
                 Hamburgers[10].SetActive(false);
+                Hamburgers[16].SetActive(true);
+                //¸ñ¼û + µÇ¾úÀ» ½Ã º° ¸®¼Ò½º
+                Hamburgers[15].SetActive(false);
                 Hamburgers[9].SetActive(true);
-                Hamburgers[14].SetActive(false);
-                Hamburgers[13].SetActive(true);
-                
+
                 break;
             case 3:
 
                 Hamburgers[2].SetActive(false);
                 Hamburgers[3].SetActive(true);
+                //ÀÌ ¹ØºÎÅÍ´Â º° ¸ñ¼û ¸®¼Ò½º
                 Hamburgers[9].SetActive(false);
+                Hamburgers[15].SetActive(true);
+                //¸ñ¼û + µÇ¾úÀ» ½Ã º° ¸®¼Ò½º
+                Hamburgers[14].SetActive(false);
                 Hamburgers[8].SetActive(true);
-                Hamburgers[15].SetActive(false);
-                Hamburgers[14].SetActive(true);
-                
+
                 break;
             case 2:
                 Hamburgers[3].SetActive(false);
                 Hamburgers[4].SetActive(true);
+                //ÀÌ ¹ØºÎÅÍ´Â º° ¸ñ¼û ¸®¼Ò½º
                 Hamburgers[8].SetActive(false);
-                Hamburgers[7].SetActive(true);
-                Hamburgers[15].SetActive(true);
-                Hamburgers[17].SetActive(true);
-                Hamburgers[16].SetActive(false);
+                Hamburgers[14].SetActive(true);
+                //¸ñ¼û + µÇ¾úÀ» ½Ã º° ¸®¼Ò½º
+                Hamburgers[13].SetActive(false);
+                Hamburgers[6].SetActive(true);
 
                 break;
             case 1:
-
                 Hamburgers[4].SetActive(false);
                 Hamburgers[5].SetActive(true);
+                //ÀÌ ¹ØºÎÅÍ´Â º° ¸ñ¼û ¸®¼Ò½º
                 Hamburgers[7].SetActive(false);
+                Hamburgers[13].SetActive(true);
+                //¸ñ¼û + µÇ¾úÀ» ½Ã º° ¸®¼Ò½º
+                Hamburgers[12].SetActive(false);
                 Hamburgers[6].SetActive(true);
-                Hamburgers[17].SetActive(false);
-                Hamburgers[16].SetActive(true);
-                
+
                 break;
             case 0:
                 Hamburgers[5].SetActive(false);
-
+                //ÀÌ ¹ØºÎÅÍ´Â º° ¸ñ¼û ¸®¼Ò½º
                 Hamburgers[6].SetActive(false);
-                
+                Hamburgers[12].SetActive(true);
 
                 TriggerGameOver(); // ¸ñ¼ûÀÌ 0ÀÏ ¶§ °ÔÀÓ ¿À¹ö È£Ãâ
                 break;
