@@ -6,10 +6,10 @@ public class GameOverFollow : MonoBehaviour
 {
     public Transform player; // 캐릭터의 Transform
     public GameObject gameOverPanel; // GameOver UI 패널
-    private float distanceBelowPlayer = 25f; // 캐릭터와 GameOver 창 사이의 거리 13
+    private float distanceBelowPlayer = 30f; // 캐릭터와 GameOver 창 사이의 거리 35
     private float previousPlayerY; // 이전 프레임의 캐릭터 Y 좌표
 
-    
+
 
     void Start()
     {
@@ -19,7 +19,7 @@ public class GameOverFollow : MonoBehaviour
         // 시작 시 캐릭터의 Y좌표를 기록
         previousPlayerY = player.position.y;
 
-       
+
     }
 
 

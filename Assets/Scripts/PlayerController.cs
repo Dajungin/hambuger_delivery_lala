@@ -72,19 +72,19 @@ public class PlayerController : MonoBehaviour
                 //Debug.Log(hit.collider.gameObject.name);
             }
         }
-    } 
+    }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Cloud"))
         {
             rb.velocity = Vector2.zero;
-            
-            
+
+
             rb.AddForce(Vector2.up * jumpFoce, ForceMode2D.Force);
-            
-            
-            //anim.SetBool("isJumping", true);//애니메이션 점프 체크
+
+
+           // anim.SetBool("Jump", true);//애니메이션 점프 체크
             // 구름의 충돌 박스 비활성화
             CloundCollider.enabled = false;
 
@@ -99,7 +99,7 @@ public class PlayerController : MonoBehaviour
 
     }
 
-    
+
     void EnableCloundCollider()
     {
         CloundCollider.enabled = true;

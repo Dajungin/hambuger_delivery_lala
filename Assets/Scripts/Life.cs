@@ -33,7 +33,7 @@ public class Life : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Enemy")) // Enemy 怕弊甫 啊柳 拱眉客 面倒
         {
-            life--;
+            --life;
             UpdateLivesDisplay();
         }
 
@@ -72,7 +72,7 @@ public class Life : MonoBehaviour
     {
         if (life < Maxlife)
         {
-            life++;
+            ++life;
             UpdateLivesDisplay();
 
             if (life >= Maxlife)
@@ -129,73 +129,67 @@ public class Life : MonoBehaviour
             case 6:
                 Hamburgers[0].SetActive(true);
                 //捞 关何磐绰 喊 格见 府家胶
-                Hamburgers[17].SetActive(false);
                 Hamburgers[11].SetActive(true);
-
+                Hamburgers[17].SetActive(false);
+               
                 break;
             case 5:
-                Hamburgers[0].SetActive(false);
                 Hamburgers[1].SetActive(true);
-                //捞 关何磐绰 喊 格见 府家胶
-                Hamburgers[11].SetActive(false);
-                Hamburgers[17].SetActive(true);
-                //格见 + 登菌阑 矫 喊 府家胶
-                Hamburgers[16].SetActive(false);
-                Hamburgers[10].SetActive(true);
+                Hamburgers[0].SetActive(false);
 
+                //捞 关何磐绰 喊 格见 府家胶
+                Hamburgers[17].SetActive(true);
+                Hamburgers[11].SetActive(false);
+                //格见+
+                Hamburgers[10].SetActive(true);
                 break;
             case 4:
-
-                Hamburgers[1].SetActive(false);
                 Hamburgers[2].SetActive(true);
-                //捞 关何磐绰 喊 格见 府家胶
-                Hamburgers[10].SetActive(false);
-                Hamburgers[16].SetActive(true);
-                //格见 + 登菌阑 矫 喊 府家胶
-                Hamburgers[15].SetActive(false);
-                Hamburgers[9].SetActive(true);
+                Hamburgers[1].SetActive(false);
 
+                //捞 关何磐绰 喊 格见 府家胶
+                Hamburgers[16].SetActive(true);
+                Hamburgers[10].SetActive(false);
+                //格见+
+                Hamburgers[9].SetActive(true);
                 break;
             case 3:
-
-                Hamburgers[2].SetActive(false);
                 Hamburgers[3].SetActive(true);
+                Hamburgers[2].SetActive(false);
+                
                 //捞 关何磐绰 喊 格见 府家胶
-                Hamburgers[9].SetActive(false);
                 Hamburgers[15].SetActive(true);
-                //格见 + 登菌阑 矫 喊 府家胶
-                Hamburgers[14].SetActive(false);
+                Hamburgers[9].SetActive(false);
+                //格见+
                 Hamburgers[8].SetActive(true);
-
                 break;
             case 2:
-                Hamburgers[3].SetActive(false);
                 Hamburgers[4].SetActive(true);
+                Hamburgers[3].SetActive(false);
+               
                 //捞 关何磐绰 喊 格见 府家胶
-                Hamburgers[8].SetActive(false);
                 Hamburgers[14].SetActive(true);
-                //格见 + 登菌阑 矫 喊 府家胶
-                Hamburgers[13].SetActive(false);
-                Hamburgers[6].SetActive(true);
-
+                Hamburgers[8].SetActive(false);
+                //格见+
+                Hamburgers[7].SetActive(true);
                 break;
             case 1:
-                Hamburgers[4].SetActive(false);
                 Hamburgers[5].SetActive(true);
+                Hamburgers[4].SetActive(false);
+                
                 //捞 关何磐绰 喊 格见 府家胶
-                Hamburgers[7].SetActive(false);
                 Hamburgers[13].SetActive(true);
-                //格见 + 登菌阑 矫 喊 府家胶
-                Hamburgers[12].SetActive(false);
+                Hamburgers[7].SetActive(false);
+                //格见+
                 Hamburgers[6].SetActive(true);
 
                 break;
             case 0:
                 Hamburgers[5].SetActive(false);
                 //捞 关何磐绰 喊 格见 府家胶
-                Hamburgers[6].SetActive(false);
                 Hamburgers[12].SetActive(true);
-
+                Hamburgers[6].SetActive(false);
+                
                 TriggerGameOver(); // 格见捞 0老 锭 霸烙 坷滚 龋免
                 break;
         }
