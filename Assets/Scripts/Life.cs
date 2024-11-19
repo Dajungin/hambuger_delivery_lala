@@ -11,23 +11,21 @@ public class Life : MonoBehaviour
     public int life; // 현재 목숨
     public int Maxlife = 6; // 최대 목숨
     public GameObject gameOverPanel; // 게임 오버 UI 패널
-    public GameObject gameEndPanel; // 게임  UI 패널
 
     void Start()
     {
         life = Maxlife; // 처음은 최대 목숨으로 시작
         UpdateLivesDisplay(); // 모든 목숨 오브젝트를 활성화
         gameOverPanel.SetActive(false);
-        gameEndPanel.SetActive(false);
 
-        for(int i=12;i<18;i++)
+        for (int i = 12; i < 18; i++)
         {
             Hamburgers[i].SetActive(false);
         }
 
     }
 
-    
+
 
     void OnCollisionEnter2D(Collision2D collision)
     {
@@ -51,14 +49,14 @@ public class Life : MonoBehaviour
         }
         if (collision.gameObject.CompareTag("End")) // GameOver 태그를 가진 물체와 충돌
         {
-           
+
             UpdateLivesDisplay();
             //TriggerGameEnd(); // 게임 오버 호출 //엔딩이 나오게 해야하는 데 안 나옴 
-            if(life== Maxlife)
+            if (life == Maxlife)
             {
-                SceneManager.LoadScene("Good_Ending"); 
+                SceneManager.LoadScene("Good_Ending");
             }
-            else if(life>=1)
+            else if (life >= 1)
             {
                 SceneManager.LoadScene("Nomal_Ending");
             }
@@ -89,13 +87,6 @@ public class Life : MonoBehaviour
         Time.timeScale = 0; // 게임을 일시 정지
     }
 
-    void TriggerGameEnd()
-    {
-        // 게임 오버 이미지(UI 패널) 활성화
-        gameEndPanel.SetActive(true);
-        Time.timeScale = 0; // 게임을 일시 정지
-    }
-
 
     void UpdateLivesDisplay()
     {
@@ -118,11 +109,11 @@ public class Life : MonoBehaviour
         Time.timeScale = 1;
     }
 
-   
+
 
     void Update()
     {
-       
+
         // 목숨에 따른 Hamburgers 업데이트
         switch (life)
         {
@@ -131,7 +122,7 @@ public class Life : MonoBehaviour
                 //이 밑부터는 별 목숨 리소스
                 Hamburgers[11].SetActive(true);
                 Hamburgers[17].SetActive(false);
-               
+
                 break;
             case 5:
                 Hamburgers[1].SetActive(true);
@@ -156,7 +147,7 @@ public class Life : MonoBehaviour
             case 3:
                 Hamburgers[3].SetActive(true);
                 Hamburgers[2].SetActive(false);
-                
+
                 //이 밑부터는 별 목숨 리소스
                 Hamburgers[15].SetActive(true);
                 Hamburgers[9].SetActive(false);
@@ -166,7 +157,7 @@ public class Life : MonoBehaviour
             case 2:
                 Hamburgers[4].SetActive(true);
                 Hamburgers[3].SetActive(false);
-               
+
                 //이 밑부터는 별 목숨 리소스
                 Hamburgers[14].SetActive(true);
                 Hamburgers[8].SetActive(false);
@@ -176,7 +167,7 @@ public class Life : MonoBehaviour
             case 1:
                 Hamburgers[5].SetActive(true);
                 Hamburgers[4].SetActive(false);
-                
+
                 //이 밑부터는 별 목숨 리소스
                 Hamburgers[13].SetActive(true);
                 Hamburgers[7].SetActive(false);
@@ -189,7 +180,7 @@ public class Life : MonoBehaviour
                 //이 밑부터는 별 목숨 리소스
                 Hamburgers[12].SetActive(true);
                 Hamburgers[6].SetActive(false);
-                
+
                 TriggerGameOver(); // 목숨이 0일 때 게임 오버 호출
                 break;
         }

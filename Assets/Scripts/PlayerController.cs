@@ -11,6 +11,8 @@ public class PlayerController : MonoBehaviour
     float moveX;
     //bool Jump = false; //애니메이션 bool 확인
     Animator anim; //애니메이션 변수
+    AudioSource jump; //오디오 변수
+    public AudioClip jumps; //오디오 넣는 변수
 
 
     [SerializeField][Range(100f, 800f)] float moveSpeed = 400f; //움직이는 속도
@@ -34,7 +36,7 @@ public class PlayerController : MonoBehaviour
         playerLayer = LayerMask.NameToLayer("Player");
         CloudLayer = LayerMask.NameToLayer("Cloud");
 
-        //StartCoroutine(SetGravitiy());
+        jump = GetComponent<AudioSource>();
     }
 
     IEnumerator SetGravitiy()
@@ -82,7 +84,7 @@ public class PlayerController : MonoBehaviour
 
 
             rb.AddForce(Vector2.up * jumpFoce, ForceMode2D.Force);
-
+            jump.PlayOneShot(jumps); //음악 시작 
 
            // anim.SetBool("Jump", true);//애니메이션 점프 체크
             // 구름의 충돌 박스 비활성화
@@ -91,7 +93,7 @@ public class PlayerController : MonoBehaviour
             // 일정 시간 후 충돌 박스 다시 활성화 (0.8초 뒤)
             Invoke("EnableCloundCollider", 0.8f);
         }
-
+        
         if (collision.gameObject.CompareTag("Enemy"))
         {
             collision.gameObject.SetActive(false);
