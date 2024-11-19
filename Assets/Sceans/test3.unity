@@ -2568,7 +2568,7 @@ MonoBehaviour:
   cloudPrefab: {fileID: 4118146142170104568, guid: c149d49d3ee17bc42ba7b2514828c835, type: 3}
   minX: -3
   maxX: 3
-  nextSpawnYOffset: 7
+  nextSpawnYOffset: 6
 --- !u!4 &990164628
 Transform:
   m_ObjectHideFlags: 0
@@ -3460,7 +3460,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 500, y: 350}
+  m_SizeDelta: {x: 550, y: 380}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1190219396
 MonoBehaviour:

@@ -40,7 +40,7 @@ public class CloudCtrl : MonoBehaviour
             }
 
             // 1초마다 구름 생성
-            yield return new WaitForSeconds(1.0f);
+            yield return new WaitForSeconds(0.5f);
         }
     }
 

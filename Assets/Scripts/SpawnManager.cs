@@ -50,7 +50,7 @@ public class SpawnManager : MonoBehaviour
             lastSpawnY = spawnY;
 
             // 몬스터 생성 후 1초 대기
-            yield return new WaitForSeconds(2.8f);
+            yield return new WaitForSeconds(1.0f);
         }
     }
     void CleanupOffScreenObjects()

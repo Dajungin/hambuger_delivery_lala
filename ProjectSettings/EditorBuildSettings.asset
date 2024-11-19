@@ -9,6 +9,9 @@ EditorBuildSettings:
     path: Assets/Sceans/Main.unity
     guid: 8907db0e04773754e995dc00d9a2f9ea
   - enabled: 1
+    path: Assets/Sceans/Tutorials.unity
+    guid: eb454261a6fc1084bbf2599521923cb0
+  - enabled: 1
     path: Assets/Sceans/test3.unity
     guid: fd02c1bdc88b91449ad02b28213c5fed
   - enabled: 1
