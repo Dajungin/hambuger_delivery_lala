@@ -11,6 +11,7 @@ public class Life : MonoBehaviour
     public int life; // 현재 목숨
     public int Maxlife = 6; // 최대 목숨
     public GameObject gameOverPanel; // 게임 오버 UI 패널
+    Animator anim;
 
     void Start()
     {
@@ -22,6 +23,7 @@ public class Life : MonoBehaviour
         {
             Hamburgers[i].SetActive(false);
         }
+        anim = GetComponent<Animator>(); //애니메이션 
 
     }
 
@@ -47,11 +49,10 @@ public class Life : MonoBehaviour
             UpdateLivesDisplay();
             TriggerGameOver(); // 게임 오버 호출
         }
-        if (collision.gameObject.CompareTag("End")) // GameOver 태그를 가진 물체와 충돌
+        if (collision.gameObject.CompareTag("End")) 
         {
 
             UpdateLivesDisplay();
-            //TriggerGameEnd(); // 게임 오버 호출 //엔딩이 나오게 해야하는 데 안 나옴 
             if (life == Maxlife)
             {
                 SceneManager.LoadScene("Good_Ending");

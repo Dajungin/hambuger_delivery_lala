@@ -6,7 +6,7 @@ public class fall : MonoBehaviour
 {
     public Transform player; // 캐릭터의 Transform
     public GameObject fallPanel; // GameOver UI 패널
-    private float distanceBelowPlayer = 20; // 캐릭터와 GameOver 창 사이의 거리 20
+    private float distanceBelowPlayer = 15; // 캐릭터와 GameOver 창 사이의 거리 20
     private float previousPlayerY; // 이전 프레임의 캐릭터 Y 좌표
 
     Rigidbody2D rb;
