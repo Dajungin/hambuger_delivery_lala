@@ -55,7 +55,7 @@ public class Enemy : MonoBehaviour
 
     void GoRight()
     {
-        localScale.x = 1;
+        localScale.x = 3;// 1;
         transform.transform.localScale = localScale;
         pos += transform.right * Time.deltaTime * speed;
         transform.position = pos + transform.up * Mathf.Sin(Time.time * frequency) * waveHeight;
@@ -63,7 +63,7 @@ public class Enemy : MonoBehaviour
 
     void GoLeft()
     {
-        localScale.x = -1;
+        localScale.x = -3;// -1 ;
         transform.transform.localScale = localScale;
         pos -= transform.right * Time.deltaTime * speed;
         transform.position = pos + transform.up * Mathf.Sin(Time.time * frequency) * waveHeight;
