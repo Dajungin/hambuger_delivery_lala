@@ -25,11 +25,13 @@ public class TextBox2 : MonoBehaviour
 
     void Update()
     {
+        /*
         // 모바일 터치 입력 처리
         if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began)
         {
             ShowNextImage();
         }
+        */
 
         // 디버깅용: PC에서 마우스 클릭 처리
         if (Input.GetMouseButtonDown(0))

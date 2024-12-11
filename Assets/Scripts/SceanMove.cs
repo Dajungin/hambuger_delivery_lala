@@ -8,7 +8,7 @@ public class SceanMove : MonoBehaviour
    public void SceneLoader(string sceneName)
     {
         SceneManager.LoadScene(sceneName);
-
+        Time.timeScale = 1;
     }
 
 }

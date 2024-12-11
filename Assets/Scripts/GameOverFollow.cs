@@ -6,37 +6,50 @@ public class GameOverFollow : MonoBehaviour
 {
     public Transform player; // 캐릭터의 Transform
     public GameObject gameOverPanel; // GameOver UI 패널
-    private float distanceBelowPlayer = 20f; // 캐릭터와 GameOver 창 사이의 거리 35
+    private float distanceBelowPlayer = 20f; // 캐릭터와 GameOver 창 사이의 거리
     private float previousPlayerY; // 이전 프레임의 캐릭터 Y 좌표
-
-
+    private float fixedPanelY; // 패널이 고정될 Y 좌표
 
     void Start()
     {
-        // GameOver 창을 처음부터 비활성화하거나 필요에 따라 활성화
-        gameOverPanel.SetActive(true);
+        // GameOver 창을 처음부터 활성화
+        //gameOverPanel.SetActive(false);
 
-        // 시작 시 캐릭터의 Y좌표를 기록
+        // 시작 시 캐릭터의 Y 좌표를 기록
         previousPlayerY = player.position.y;
 
-
+        // 초기 패널 위치 설정
+        fixedPanelY = player.position.y - distanceBelowPlayer;
     }
-
-
 
     void Update()
     {
-        // 캐릭터가 이전 프레임보다 위로 이동했을 때만 GameOver 창의 위치를 업데이트
         if (player.position.y > previousPlayerY)
         {
-            // GameOver 창이 항상 캐릭터의 Y좌표 아래 13만큼 위치하게 설정
-            Vector3 newPos = gameOverPanel.transform.position;
-            newPos.y = player.position.y - distanceBelowPlayer;
-            gameOverPanel.transform.position = newPos;
+            Vector3 pos = gameOverPanel.transform.position;
+            pos.y = player.position.y - distanceBelowPlayer;
+
+            gameOverPanel.transform.position = pos;
+        }
+        previousPlayerY = player.position.y;
+
+        /*
+
+        // 플레이어의 Y 좌표가 상승하면 패널을 업데이트
+        if (player.position.y > previousPlayerY)
+        {
+            fixedPanelY = player.position.y - distanceBelowPlayer;
         }
 
-        // 현재 프레임의 캐릭터 Y좌표를 저장해 다음 프레임과 비교
+        // 패널의 위치를 고정된 Y 값으로 설정
+        Vector3 newPos = gameOverPanel.transform.position;
+        newPos.y = fixedPanelY;
+        gameOverPanel.transform.position = newPos;
+
+        // 현재 프레임의 캐릭터 Y 좌표를 저장해 다음 프레임과 비교
         previousPlayerY = player.position.y;
+        */
+
     }
 
     // GameOver 창을 활성화하는 함수 (필요한 곳에서 호출 가능)
@@ -44,10 +57,5 @@ public class GameOverFollow : MonoBehaviour
     {
         gameOverPanel.SetActive(true);
     }
-
-    // GameOver 창을 비활성화하는 함수 (필요한 경우 사용 가능)
-    public void HideGameOverPanel()
-    {
-        gameOverPanel.SetActive(false);
-    }
+  
 }

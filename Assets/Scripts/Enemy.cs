@@ -16,15 +16,22 @@ public class Enemy : MonoBehaviour
     AudioSource hit; //오디오 변수
     public AudioClip hits; //오디오 넣는 변수
 
+    private void Awake()
+    {
+        
+    }
     public void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("glass")) //Player 태그를 가진 물체
+        //if (collision.gameObject.CompareTag("glass")) //Player 태그를 가진 물체
+        if (collision.gameObject.CompareTag("Player")) //Player 태그를 가진 물체
         {
+            GameObject.Find("crash").GetComponent< AudioSource >().Play();
+            //hit.Play();
 
             Destroy(this.gameObject); //부딪힐 시 사라지게 하는 코드 
                                       //Destroy(collision.gameObject);
-            hit.PlayOneShot(hits); //음악 시작 
-
+                                      //hit.PlayOneShot(hits); //음악 시작 
+            
         }
 
     }

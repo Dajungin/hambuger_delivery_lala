@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 public class TextBox3 : MonoBehaviour
 {
     public GameObject[] images; // 이미지를 관리하는 배열
+    public GameObject[] backgrounds; // 배경을 관리하는 배열 (배경은 2개)
     private int currentImageIndex = 0; // 현재 활성화된 이미지의 인덱스
 
     void Start()
@@ -20,12 +21,19 @@ public class TextBox3 : MonoBehaviour
         {
             images[0].SetActive(true);
         }
+
+        // 첫 번째 배경을 활성화하고 두 번째 배경을 비활성화
+        if (backgrounds.Length >= 2)
+        {
+            backgrounds[0].SetActive(true);
+            backgrounds[1].SetActive(false);
+        }
     }
 
     void Update()
     {
-        // 모바일 터치 입력 처리
-        if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began)
+        // 디버깅용: PC에서 마우스 클릭 처리
+        if (Input.GetMouseButtonDown(0))
         {
             ShowNextImage();
         }
@@ -37,10 +45,17 @@ public class TextBox3 : MonoBehaviour
         images[currentImageIndex].SetActive(false);
 
         // 다음 이미지가 있다면 활성화
-        if (currentImageIndex < images.Length - 1) // 범위 초과 방지
+        if (currentImageIndex < images.Length - 1)
         {
             currentImageIndex++;
             images[currentImageIndex].SetActive(true);
+
+            // 이미지 인덱스가 8이면 배경을 두 번째 배경으로 변경
+            if (currentImageIndex == 7 && backgrounds.Length >= 2)
+            {
+                backgrounds[0].SetActive(false);
+                backgrounds[1].SetActive(true);
+            }
         }
         else
         {
