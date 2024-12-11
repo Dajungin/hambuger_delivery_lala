@@ -13,6 +13,7 @@ public class Life : MonoBehaviour
     public GameObject gameOverPanel; // 게임 오버 UI 패널
 
     public AudioSource gameoverBGM;
+    public AudioSource backBGM;
     Animator anim;
 
     private void Awake()
@@ -102,6 +103,7 @@ public class Life : MonoBehaviour
         Time.timeScale = 0; // 게임을 일시 정지
 
         //game over sound
+        backBGM.Pause(); //일시정지
         gameoverBGM.Play();
     }
 
@@ -125,24 +127,27 @@ public class Life : MonoBehaviour
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         Time.timeScale = 1;
+        backBGM.UnPause();
     }
 
 
     void LifeUIUpdate()
     {
-        if(life == Maxlife) Hamburgers[12].SetActive(true);
-        else Hamburgers[12].SetActive(false);
+        if(life == Maxlife) Hamburgers[17].SetActive(true);
+        //else Hamburgers[12].SetActive(false);
 
         for (int i = 0; i < Maxlife; i++)
         {
             Hamburgers[i].SetActive(false);
-            Hamburgers[i+6].SetActive(false);
+            Hamburgers[i+6].SetActive(true);
+            Hamburgers[i + 12].SetActive(false);
         }
             //life //6 ~ 0
         for (int i = 0; i < life; i++)
         {
             Hamburgers[i].SetActive(true);
-            Hamburgers[i + 6].SetActive(true);
+            Hamburgers[i + 6].SetActive(false);
+            Hamburgers[i+12].SetActive(true);
         }               
     }
 

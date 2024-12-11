@@ -13,6 +13,8 @@ public class Enemy : MonoBehaviour
     Vector3 pos, localScale;
     bool dirRight = true;
 
+    AudioSource hit; //오디오 변수
+    public AudioClip hits; //오디오 넣는 변수
 
     public void OnCollisionEnter2D(Collision2D collision)
     {
@@ -21,6 +23,7 @@ public class Enemy : MonoBehaviour
 
             Destroy(this.gameObject); //부딪힐 시 사라지게 하는 코드 
                                       //Destroy(collision.gameObject);
+            hit.PlayOneShot(hits); //음악 시작 
 
         }
 
@@ -35,6 +38,8 @@ public class Enemy : MonoBehaviour
     {
         pos = transform.position;
         localScale = transform.localScale;
+
+        hit = GetComponent<AudioSource>();
     }
 
 
